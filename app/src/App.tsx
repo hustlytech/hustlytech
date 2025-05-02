@@ -1,47 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
 
-const App: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true);
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(prev => !prev);
-    }, 200); // Toggle every 3 seconds
+const queryClient = new QueryClient();
 
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="App">
-      <div className="container">
-        <img 
-          src="/logo.png" 
-          alt="Hustly Tech Logo" 
-          className="logo" 
-          width={150}
-          height={150}
-        />
-        
-        <h1 style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
-          🚧 Under Construction
-        </h1>
-        <p>We're building something awesome! Our website will be live soon.</p>
-        <p>In the meantime, feel free to reach out:</p>
-        
-        <div className="contact">
-          <p><strong>Hustly Tech</strong><br />
-          Freelance Software Solutions: Web, Cybersecurity</p>
-          
-          <p>
-            Email: <a href="mailto:hustlytech@gmail.com">hustlytech@gmail.com</a>
-            <br />
-            Instagram: <a href="https://www.instagram.com/hustlytech" target="_blank" rel="noopener noreferrer">@hustlytech</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider defaultTheme="system">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
+  </QueryClientProvider>
+);
 
 export default App;
