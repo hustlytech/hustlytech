@@ -32,7 +32,7 @@ const Navbar: React.FC<Props> = ({ className, ...props }) => {
         
         {/* Mobile menu button */}
         <div className="flex items-center space-x-2 md:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -58,7 +58,7 @@ const Navbar: React.FC<Props> = ({ className, ...props }) => {
           <Link to="/contact" className="font-medium text-foreground hover:text-primary">
             Contact
           </Link>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
         
         {/* Mobile navigation menu */}
