@@ -48,9 +48,9 @@ const teamMembers = [
     bio: "Builds secure DApps with expertise in smart contracts and Web3 integrations.",
     image: "https://doeresults.gitam.edu/photo/img.aspx?id=Vu21csen0400048",
     socials: {
-      twitter: "https://twitter.com/jamiewilson",
-      linkedin: "https://linkedin.com/in/jamiewilson",
-      github: "https://github.com/jamiewilson"
+      // twitter: "https://twitter.com/jamiewilson",
+      linkedin: "https://linkedin.com/in/sanjeev-varma7",
+      github: "https://github.com/Sanjeevvarmabetter"
     },
     expertise: [
       "Smart Contracts",
